@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require foundation_and_overrides
+ *= require_self
+ */
+
+body {
+  font-family: HelveticaNeue-UltraLight;
+}
+
+#main > header {
+ background: rgb(28, 138, 216);
+ padding: 7px 29px;
+ margin-bottom: 36px;
+
+ h2 {
+   font-family: HelveticaNeue-UltraLight;
+   font-weight: 100;
+   color: white;
+   font-size: 1.9em;
+
+   a {
+     color: white;
+
+     &:hover {
+       color: white;
+       text-decoration: underline;
+     }
+   }
+ }
+
+}
+
+
+article {
+
+ header {
+   h3 {
+     font-weight: 200;
+   }
+ }
+}
+
+#content {
+  margin: 12px auto;
+  max-width: 600px;
+
+}
+
+#newPost {
+  display: inline-block;
+  border-radius: 45px;
+  background-color: rgb(28, 138, 216);
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  line-height: 38px;
+  color: white;
+  font-weight: 200;
+  font-size: 30px;
+  float: right;
+  margin-right: 40px;
+  transition: all 0.1s ease;
+
+  &:hover {
+    box-shadow: 2px 3px #AAA;
+    transform: scale(1.3);
+  }
+}
