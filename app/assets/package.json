@@ -5,7 +5,7 @@
   "devDependencies": {
     "webpack": "~1.4.13",
     "webpack-dev-server": "*",
-    "react-hot-loader": "0.5.0",
+    "react-hot-loader": "*",
     "jsx-loader": "*",
     "css-loader": "*",
     "expose-loader": "~0.6.0",

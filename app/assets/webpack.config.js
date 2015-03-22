@@ -9,6 +9,7 @@ module.exports = {
   entry: {
     App: [
       'webpack-dev-server/client?http://localhost:8080/assets/',
+      'webpack/hot/only-dev-server',
       './javascripts/client_application.cjsx'
     ]
   },
