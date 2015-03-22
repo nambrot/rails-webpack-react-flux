@@ -15,3 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
+
+/app/assets/node_modules
