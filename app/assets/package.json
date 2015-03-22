@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "react": "*",
-    "react-router": "*"
+    "react-router": "*",
+    "immutable": "*",
+    "flummox": "*"
   }
 }
