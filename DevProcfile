@@ -1,0 +1,2 @@
+web: rails s
+webpack: webpack-dev-server --config app/assets/webpack.config.js --progress --inline
