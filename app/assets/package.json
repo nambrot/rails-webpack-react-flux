@@ -16,6 +16,7 @@
     "json-loader": "*"
   },
   "dependencies": {
-
+    "react": "*",
+    "react-router": "*"
   }
 }

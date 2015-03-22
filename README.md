@@ -15,8 +15,9 @@ I'll try to keep this as concise as possible in a step-by-step guide of how I ap
 
 Love the asset pipeline to death, but the lack of true models definitely gets noticable with larger amounts of client side code. We will be using Webpack to allow us to write modular code as well as use the great diversity of the NPM ecosystem.
 
+### 2. Setup basic React and Flux
 
-
+We are going to set the barebones of the Flux architecture without thinking too much about the server part, for now, we will just fetch everything on demand.
 
 ### Not Adressing
 
