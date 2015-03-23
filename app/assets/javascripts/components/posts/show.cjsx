@@ -5,7 +5,7 @@ FluxComponent = require('flummox/component')
 Show = React.createClass
   displayName: "PostShow"
   render: ->
-    if @props.post
+    if @props.post and @props.post.get('content')
       <article>
         <header>
           <h3>{@props.post.get('title')}</h3>
