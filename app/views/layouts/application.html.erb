@@ -13,17 +13,10 @@
   <body>
 
     <div id="main">
-      <header>
-        <h2><%= link_to "Super Cool Blog", root_path %></h2>
-      </header>
-      <div id="content">
-        <%= yield %>
-      </div>
-      <div id="reactContent">
-
-      </div>
-
+      <%= yield %>
     </div>
+
+
 
   <%= javascript_include_tag :app%>
   </body>
