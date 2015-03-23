@@ -11,4 +11,11 @@ class PostActions extends Actions
     axios.get("/posts/#{id}", headers: acceptJSON)
     .then (response) -> response.data
 
+  createPost: (post) ->
+    axios.post('/posts.json', post: post, headers: acceptJSON)
+    .then (response) -> response.data
+  updatePost: (post) ->
+    axios.put("/posts/#{post.id}", post: post, headers:acceptJSON)
+    .then (response) -> response.data
+
 module.exports = PostActions
