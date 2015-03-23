@@ -1,3 +1,1 @@
-<script>
-  window.serializedStoreState = <%== { posts: {serializedPosts: render(template: 'posts/index.json.jbuilder'), didFetchAll: true } }.to_json.to_json %>
-</script>
+<%= renderSerializedStoreState(posts: { serializedPosts: render(template: 'posts/index.json.jbuilder'), didFetchAll: true } ) %>
