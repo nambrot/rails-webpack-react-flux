@@ -9,6 +9,16 @@ getPostsFromJSON = (posts) ->
   Immutable.OrderedMap(immutablePosts)
 
 class PostsStore extends Store
+  @serialize: (state) ->
+    # unused in this example
+    ""
+  @deserialize: (serializedState) ->
+    if serializedState
+      posts: getPostsFromJSON(JSON.parse(serializedState.serializedPosts))
+      didFetchAll: serializedState.didFetchAll
+    else
+      getDefaultState()
+
   constructor: (flux) ->
     super()
 

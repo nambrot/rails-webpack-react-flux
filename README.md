@@ -19,6 +19,10 @@ Love the asset pipeline to death, but the lack of true models definitely gets no
 
 We are going to set the barebones of the Flux architecture without thinking too much about the server part, for now, we will just fetch everything on demand.
 
+### 3. Store Deserialization
+
+The first step to server side rendering is to be able to deserialize data into the store for the client. This also avoids the inital request for data. React is also smart enough to not touch the DOM as the resulting HTML is identical.
+
 ### Not Adressing
 
 1. User Authentication
