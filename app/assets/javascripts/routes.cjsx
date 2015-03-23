@@ -6,10 +6,11 @@ Route = Router.Route
 
 PostsIndex = require "components/posts/index"
 PostShow = require "components/posts/show"
-
+PostNew = require "components/posts/new"
 routes = (
   <Route name="app" path="/">
     <Route name="posts">
+      <Route name="newPost" path="new" handler={PostNew} />
       <Route name="post" path=":postId">
         <DefaultRoute handler={PostShow} />
       </Route>

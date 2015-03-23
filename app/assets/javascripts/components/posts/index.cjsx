@@ -19,6 +19,7 @@ Index = React.createClass
           </article>
         .toArray()
       }
+      <Link to={"newPost"} id={"newPost"}>+</Link>
     </div>
 
 FluxIndex = React.createClass
