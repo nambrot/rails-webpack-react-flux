@@ -17,5 +17,7 @@ class PostActions extends Actions
   updatePost: (post) ->
     axios.put("/posts/#{post.id}.json", post: post, headers:acceptJSON)
     .then (response) -> response.data
+  destroyPost: (id) ->
+    axios.delete("/posts/#{id}", headers: acceptJSON)
 
 module.exports = PostActions

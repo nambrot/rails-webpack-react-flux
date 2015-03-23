@@ -17,6 +17,7 @@ class PostsStore extends Store
     @registerAsync postActionIds.fetchPost, @startFetchingPost, @fetchedPost
     @registerAsync postActionIds.createPost, @startCreatePost, @createdPost
     @registerAsync postActionIds.updatePost, @startUpdatingPost, @updatedPost
+    @registerAsync postActionIds.destroyPost, @startDestroyingPost, @destroyedPost
 
     @state = getDefaultState()
     @flux = flux
@@ -29,6 +30,9 @@ class PostsStore extends Store
   startUpdatingPost: (post) ->
     # optimisitcally update, technically you should handle the failure case as well
     @setState posts: @state.posts.set("#{post.id}", Immutable.OrderedMap(post))
+  startDestroyingPost: (id) ->
+    # optimistically destroy, technically you should handle the failure case as well
+    @setState posts: @state.posts.remove("#{id}")
 
   fetchedAllPosts: (posts) ->
     # merge the incoming data with potentially already existent data. Practically, you'd want to do more intelligent merge conflict resolution
@@ -38,6 +42,7 @@ class PostsStore extends Store
   createdPost: (post) ->
     @setState posts: @state.posts.set "#{post.id}", Immutable.OrderedMap(post)
   updatedPost: (post) ->
+  destroyedPost: (post) ->
 
   didFetchAll: ->
     @state.didFetchAll
