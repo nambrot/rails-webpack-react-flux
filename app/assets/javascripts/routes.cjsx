@@ -8,8 +8,10 @@ PostsIndex = require "components/posts/index"
 PostShow = require "components/posts/show"
 PostNew = require "components/posts/new"
 PostEdit = require "components/posts/edit"
+App = require "components/app"
+
 routes = (
-  <Route name="app" path="/">
+  <Route name="app" path="/" handler={App}>
     <Route name="posts">
       <Route name="newPost" path="new" handler={PostNew} />
       <Route name="post" path=":postId">
