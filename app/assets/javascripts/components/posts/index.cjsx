@@ -1,5 +1,6 @@
 React = require('react')
 FluxComponent = require('flummox/component')
+Link = require('react-router').Link
 
 Index = React.createClass
   displayName: "PostsIndex"
@@ -9,7 +10,11 @@ Index = React.createClass
         @props.posts.map (post) ->
           <article key={post.get('id')}>
             <header>
-              <h3>{post.get('title')}</h3>
+              <h3>
+                <Link to="post" params={postId: post.get('id')}>
+                  {post.get('title')}
+                </Link>
+              </h3>
             </header>
           </article>
         .toArray()
