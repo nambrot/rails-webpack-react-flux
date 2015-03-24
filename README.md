@@ -25,7 +25,7 @@ The first step to server side rendering is to be able to deserialize data into t
 
 ### 4. Add Server-Side Rendering
 
-We are going to use a simple express server which will take the 1. route and 2. serializedState as parameters and simply return the HTML.
+We are going to use a simple express server which will take the 1. route and 2. serializedState as parameters and simply return the HTML. The result is complete HTML pages being returned. In fact, you should now be able to navigate the page without the need for Javascript enabled, time-to-render on the client is faster, obvious SEO benefits. The downside is a "round-trip" to the express server
 
 ### Not Adressing
 
