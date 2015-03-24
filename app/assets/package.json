@@ -20,6 +20,9 @@
     "react-router": "*",
     "immutable": "*",
     "flummox": "*",
-    "axios": "*"
+    "axios": "*",
+    "express": "^4.12.0",
+    "enhanced-require": "*",
+    "body-parser": "*"
   }
 }

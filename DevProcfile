@@ -1,2 +1,3 @@
 web: rails s
 webpack: webpack-dev-server --config app/assets/webpack.config.js --progress --inline --module-bind --hot
+node: supervisor -e node,js,coffee,jsx,cjsx app/assets/javascripts/component_render_server.js

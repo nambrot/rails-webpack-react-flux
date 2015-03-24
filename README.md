@@ -23,6 +23,10 @@ We are going to set the barebones of the Flux architecture without thinking too 
 
 The first step to server side rendering is to be able to deserialize data into the store for the client. This also avoids the inital request for data. React is also smart enough to not touch the DOM as the resulting HTML is identical.
 
+### 4. Add Server-Side Rendering
+
+We are going to use a simple express server which will take the 1. route and 2. serializedState as parameters and simply return the HTML.
+
 ### Not Adressing
 
 1. User Authentication
