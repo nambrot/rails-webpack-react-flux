@@ -7,6 +7,8 @@ getPostsFromJSON = (posts) ->
   immutablePosts = {}
   immutablePosts["#{post.id}"] = Immutable.OrderedMap(post) for post in posts
   Immutable.OrderedMap(immutablePosts)
+sortComparator = (a, b) ->
+  Date.parse(a.get('updated_at')) < Date.parse(b.get('updated_at'))
 
 class PostsStore extends Store
   @serialize: (state) ->
@@ -14,7 +16,7 @@ class PostsStore extends Store
     ""
   @deserialize: (serializedState) ->
     if serializedState
-      posts: getPostsFromJSON(JSON.parse(serializedState.serializedPosts))
+      posts: getPostsFromJSON(JSON.parse(serializedState.serializedPosts)).sort(sortComparator)
       didFetchAll: serializedState.didFetchAll
     else
       getDefaultState()
@@ -39,20 +41,24 @@ class PostsStore extends Store
     # You could optimistically create here, but then have to deal with UUID generation
   startUpdatingPost: (post) ->
     # optimisitcally update, technically you should handle the failure case as well
-    @setState posts: @state.posts.set("#{post.id}", Immutable.OrderedMap(post))
+    @setPosts @state.posts.set("#{post.id}", Immutable.OrderedMap(post))
   startDestroyingPost: (id) ->
     # optimistically destroy, technically you should handle the failure case as well
-    @setState posts: @state.posts.remove("#{id}")
+    @setPosts @state.posts.remove("#{id}")
 
   fetchedAllPosts: (posts) ->
     # merge the incoming data with potentially already existent data. Practically, you'd want to do more intelligent merge conflict resolution
-    @setState posts: getPostsFromJSON(posts).merge(@state.posts), didFetchAll: true
+    @setPosts getPostsFromJSON(posts).merge(@state.posts)
+    @setState didFetchAll: true
   fetchedPost: (post) ->
-    @setState posts: @state.posts.set("#{post.id}", Immutable.OrderedMap(post))
+    @setPosts @state.posts.set("#{post.id}", Immutable.OrderedMap(post))
   createdPost: (post) ->
-    @setState posts: @state.posts.set "#{post.id}", Immutable.OrderedMap(post)
+    @setPosts @state.posts.set("#{post.id}", Immutable.OrderedMap(post))
   updatedPost: (post) ->
   destroyedPost: (post) ->
+
+  setPosts: (posts) ->
+    @setState posts: posts.sort(sortComparator)
 
   didFetchAll: ->
     @state.didFetchAll
