@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  caches_action :index, cache_path: proc {|c| first_patient = Post.select(:id, :updated_at).first; { format: c.request.format.symbol, updated_at: first_patient.try(:updated_at), id: first_patient.try(:id)} }
+  caches_action :show, cache_path: proc { |c| {format: c.request.format.symbol, updated_at: Post.select(:updated_at).find(c.params[:id]).updated_at}}
   respond_to :html, :json
 
   def index

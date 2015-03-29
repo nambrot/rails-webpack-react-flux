@@ -23,5 +23,6 @@ module RailsWebpackReactFluxIsomorphic
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.app_generators.scaffold_controller :responders_controller
+    config.cache_store = :redis_store, (ENV["REDISTOGO_URL"] || "redis://localhost:6379")
   end
 end
