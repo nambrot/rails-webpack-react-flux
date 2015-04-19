@@ -44,7 +44,7 @@ Form = React.createClass
       <label htmlFor="post[title]">Title</label>
       <input name="post[title]" type="text" value={@state.title} onChange={@onTitleChange} />
 
-      <label htmlFor="post[content]">Title</label>
+      <label htmlFor="post[content]">Content</label>
       <textarea name="post[content]" value={@state.content} onChange={@onContentChange} />
 
       <input type="submit" value={@formSubmitButtonValue()} />
